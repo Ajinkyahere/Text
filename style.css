@@ -1,0 +1,202 @@
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #ff7eb3, #ff758c);
+  font-family: "Poppins", Arial, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+
+/* Envelope Design */
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  border: 3px solid #d76a7c;
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: translateY(10%);
+  animation: bounce 2s infinite;
+}
+
+.envelope .flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #ff6b81;
+  border-radius: 0 0 10px 10px;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 0.8s ease-in-out;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.envelope .letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+}
+
+.envelope .open-btn {
+  background: #d16d82;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.envelope .open-btn:hover {
+  background: #a6445c;
+  transform: scale(1.1);
+}
+
+/* Romantic Message */
+.message-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.message-container.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.message {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 350px;
+  text-align: center;
+  animation: zoomIn 0.6s ease-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.message h1 {
+  font-size: 1.8rem;
+  color: #d16d82;
+  margin-bottom: 10px;
+}
+
+.message p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.message .close-btn {
+  background: #d16d82;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.message .close-btn:hover {
+  background: #a6445c;
+  transform: scale(1.1);
+}
+
+/* Floating Icons */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.7;
+  animation: float 8s infinite ease-in-out;
+}
+
+/* Heart Icon */
+.icon.heart {
+  background: #ff6b81;
+  clip-path: polygon(50% 0%, 61% 10%, 72% 28%, 65% 41%, 50% 60%, 35% 41%, 28% 28%, 39% 10%);
+}
+
+/* Kiss Icon */
+.icon.kiss {
+  background: #ff85a1;
+  clip-path: ellipse(50% 35% at 50% 50%);
+}
+
+/* Star Icon */
+.icon.star {
+  background: #f5c542;
+  clip-path: polygon(50% 0%, 61% 38%, 98% 38%, 68% 59%, 79% 97%, 50% 75%, 21% 97%, 32% 59%, 2% 38%, 39% 38%);
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(10%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
