@@ -1,183 +1,173 @@
-/* General Styling */
-body {
+/* Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+  overflow: hidden;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(120deg, #ff7eb3, #ff758c);
-  font-family: "Poppins", Arial, sans-serif;
+  justify-content: center;
+}
+
+.envelope-container {
+  position: relative;
+}
+
+.envelope {
+  width: 200px;
+  height: 150px;
+  background: #fff;
+  border: 2px solid #ff6b81;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flap {
+  width: 100%;
+  height: 50%;
+  background: #ff6b81;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transition: transform 0.5s ease;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.open-button {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff6b81;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.open-button:hover {
+  background: #ff4d6d;
+}
+
+.message-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
 
-.container {
-  position: relative;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
+.message-container.visible {
+  display: flex;
 }
 
 /* Floating Icons */
 .floating-icons {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 0;
   overflow: hidden;
-  z-index: 1;
 }
 
-.floating-icons .icon {
+.icon {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  opacity: 0.7;
-  animation: float 5s infinite ease-in-out;
+  font-size: 24px;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.8;
 }
 
-.floating-icons .heart {
-  background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/cover;
-  animation-delay: 1s;
+.icon.heart {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
 }
 
-.floating-icons .kiss {
-  background: url('https://cdn-icons-png.flaticon.com/512/742/742751.png') no-repeat center/cover;
-  animation-delay: 2s;
+.icon.kiss {
+  top: 50%;
+  left: 40%;
+  animation-delay: 1.5s;
 }
 
-.floating-icons .rose {
-  background: url('https://cdn-icons-png.flaticon.com/512/1047/1047788.png') no-repeat center/cover;
+.icon.rose {
+  top: 70%;
+  left: 60%;
   animation-delay: 3s;
 }
 
-.floating-icons .star {
-  background: url('https://cdn-icons-png.flaticon.com/512/616/616554.png') no-repeat center/cover;
-  animation-delay: 4s;
+.icon.star {
+  top: 30%;
+  left: 80%;
+  animation-delay: 4.5s;
 }
 
+/* Floating Animation */
 @keyframes float {
   0% {
-    transform: translateY(100vh) scale(0.5);
-    opacity: 0;
+    transform: translateY(0) scale(1);
   }
   50% {
-    opacity: 1;
+    transform: translateY(-20px) scale(1.1);
   }
   100% {
-    transform: translateY(-10%) scale(1);
-    opacity: 0;
+    transform: translateY(0) scale(1);
   }
-}
-
-/* Envelope Design */
-.envelope {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background: #fff;
-  border: 3px solid #d76a7c;
-  border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  transform: translateY(10%);
-  animation: bounce 2s infinite;
-  z-index: 2;
-}
-
-.envelope .flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: #ff6b81;
-  border-radius: 0 0 10px 10px;
-  transform-origin: top center;
-  transform: rotateX(0deg);
-  transition: transform 0.8s ease-in-out;
-}
-
-.envelope .letter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  text-align: center;
-}
-
-.envelope .open-btn {
-  background: #d16d82;
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.envelope .open-btn:hover {
-  background: #a6445c;
-  transform: scale(1.1);
 }
 
 /* Romantic Message */
-.message-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s, visibility 0.5s;
-}
-
-.message-container.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
 .message {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  max-width: 90%;
+  position: relative;
+  z-index: 1;
 }
 
 .message h1 {
-  color: #d16d82;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: #ff6b81;
   margin-bottom: 15px;
 }
 
 .message p {
-  color: #333;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
+  color: #444;
+  margin-bottom: 10px;
 }
 
-.close-btn {
-  background: #d16d82;
+.close-button {
+  margin-top: 20px;
+  background: #ff6b81;
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
 }
 
-.close-btn:hover {
-  background: #a6445c;
-  transform: scale(1.1);
+.close-button:hover {
+  background: #ff4d6d;
 }
