@@ -3,38 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine's Surprise</title>
+  <title>Valentine Surprise</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Floating Icons -->
-  <div class="floating-icons">
-    <span class="icon heart"></span>
-    <span class="icon kiss"></span>
-    <span class="icon rose"></span>
-    <span class="icon star"></span>
-    <span class="icon heart"></span>
-    <span class="icon kiss"></span>
+  <!-- Envelope Section -->
+  <div class="envelope-container">
+    <div class="envelope">
+      <div class="flap"></div>
+      <div class="body"></div>
+      <button class="open-button">Open</button>
+    </div>
   </div>
 
-  <!-- Main Container -->
-  <div class="container">
-    <!-- Envelope -->
-    <div class="envelope" id="envelope">
-      <div class="flap"></div>
-      <div class="letter">
-        <button id="openBtn" class="open-btn">Tap to Open</button>
-      </div>
+  <!-- Romantic Message Section -->
+  <div class="message-container hidden">
+    <!-- Background Floating Icons -->
+    <div class="floating-icons">
+      <span class="icon heart">❤️</span>
+      <span class="icon kiss">💋</span>
+      <span class="icon rose">🌹</span>
+      <span class="icon star">✨</span>
     </div>
-
-    <!-- Romantic Message -->
-    <div class="message-container hidden" id="messageContainer">
-      <div class="message">
-        <h1>💌 For You, My Valentine 🌹</h1>
-        <p>"You’re the reason my heart beats a little faster and my smile shines a little brighter."</p>
-        <p>I couldn’t have asked for a sweeter or more special moment than sharing this with you. 💖</p>
-        <button id="closeBtn" class="close-btn">Close</button>
-      </div>
+    <!-- Message -->
+    <div class="message">
+      <h1>For You, My Valentine 🌹</h1>
+      <p>"You’re the reason my heart beats a little faster and my smile shines a little brighter."</p>
+      <p>"I couldn’t have asked for a sweeter or more special moment."</p>
+      <button class="close-button">Close</button>
     </div>
   </div>
 
