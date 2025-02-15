@@ -1,16 +1,20 @@
-const openBtn = document.getElementById("openBtn");
-const envelope = document.getElementById("envelope");
-const messageContainer = document.getElementById("messageContainer");
-const closeBtn = document.getElementById("closeBtn");
+document.addEventListener("DOMContentLoaded", () => {
+  const openButton = document.querySelector(".open-button");
+  const closeButton = document.querySelector(".close-button");
+  const messageContainer = document.querySelector(".message-container");
+  const envelopeFlap = document.querySelector(".flap");
 
-// Open Envelope Animation
-openBtn.addEventListener("click", () => {
-  envelope.style.display = "none";
-  messageContainer.classList.add("visible");
-});
+  // Open envelope and show message
+  openButton.addEventListener("click", () => {
+    envelopeFlap.style.transform = "rotateX(-180deg)";
+    setTimeout(() => {
+      messageContainer.classList.add("visible");
+    }, 500); // Show message after flap animation
+  });
 
-// Close Message
-closeBtn.addEventListener("click", () => {
-  messageContainer.classList.remove("visible");
-  envelope.style.display = "block";
+  // Close message
+  closeButton.addEventListener("click", () => {
+    messageContainer.classList.remove("visible");
+    envelopeFlap.style.transform = "rotateX(0deg)";
+  });
 });
